@@ -15,8 +15,7 @@
   "overrides": {
     "react": "$react",
     "react-dom": "$react-dom",
-    "next": "$next",
-    "lightningcss": "1.22.1"
+    "next": "$next"
   },
   "dependencies": {
     "@portabletext/markdown": "^1.1.2",
