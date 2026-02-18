@@ -2,7 +2,7 @@
   "name": "yc_directory",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+"scripts": {
     "dev": "next dev",
     "predev": "npm run typegen",
     "prebuild": "npm run typegen",
@@ -30,6 +30,7 @@
     "clsx": "^2.1.1",
     "lightningcss": "^1.31.1",
     "lucide-react": "^0.564.0",
+    "lightningcss-linux-x64-gnu": "^1.31.1",
     "next": "16.1.6",
     "next-auth": "^5.0.0-beta.30",
     "next-sanity": "^11.6.12",
@@ -59,7 +60,6 @@
   },
   "optionalDependencies": {
     "@next/swc-win32-x64-msvc": "*",
-    "lightningcss-win32-x64-msvc": "*"
   },
   "config": {
     "platform": "linux"
