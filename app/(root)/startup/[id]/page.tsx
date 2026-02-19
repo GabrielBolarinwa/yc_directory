@@ -9,17 +9,18 @@ import {
   STARTUP_BY_ID_QUERY,
 } from "@/sanity/lib/queries";
 import { PortableText } from "next-sanity";
+import { unstable_noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
 export default async function page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  unstable_noStore();
   const id = (await params).id;
   const [post, { select: editorPosts }] = await Promise.all([
     client.fetch(STARTUP_BY_ID_QUERY, { id }),
