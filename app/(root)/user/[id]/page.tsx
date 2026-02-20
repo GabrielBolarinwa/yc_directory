@@ -6,7 +6,16 @@ import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-async function page({ params }: { params: Promise<{ id: string }> }) {
+
+function page({ params }: { params: Promise<{ id: string }> }) {
+  return (
+    <Suspense>
+      <UserContent params={params} />
+    </Suspense>
+  );
+}
+
+async function UserContent({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id;
   const session = await auth();
   const user = await client.fetch(AUTHOR_BY_ID_QUERY, { id });
