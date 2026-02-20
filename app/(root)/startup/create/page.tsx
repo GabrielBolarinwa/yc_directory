@@ -1,8 +1,17 @@
 import { auth } from "@/auth";
 import StartupForm from "@/components/StartupForm";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 
-async function page() {
+function page() {
+  return (
+    <Suspense>
+      <CreateContent />
+    </Suspense>
+  );
+}
+
+async function CreateContent() {
   const session = await auth();
   if (!session) {
     redirect("/");
