@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { auth } from "@/auth";
 import { BadgePlus } from "lucide-react";
 import Image from "next/image";
@@ -6,8 +5,17 @@ import Link from "next/link";
 import LoginForm from "./LoginForm";
 import LogoutForm from "./LogoutForm";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Suspense } from "react";
 
-async function Navbar() {
+export default function Navbar() {
+  return (
+    <Suspense>
+      <NavbarContent />
+    </Suspense>
+  );
+}
+
+async function NavbarContent() {
   const session = await auth();
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
@@ -41,5 +49,3 @@ async function Navbar() {
     </header>
   );
 }
-
-export default Navbar;

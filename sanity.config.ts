@@ -1,4 +1,4 @@
-
+"use client"
 import { apiVersion, dataset, projectId } from "./sanity/env";
 /**
  * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.tsx` route

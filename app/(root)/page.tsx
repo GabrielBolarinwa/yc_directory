@@ -3,16 +3,25 @@ import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
 import { ContentSourceMap } from "next-sanity";
-import { auth } from "@/auth";
+import { Suspense } from "react";
 
-export default async function Home({
+export default function page({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) {
+  <Suspense>
+    <HomeContent searchParams={searchParams} />
+  </Suspense>;
+}
+
+async function HomeContent({
   searchParams,
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
   const params = { search: query || null };
-  const session = await auth();
   const { data: posts } = (await sanityFetch({
     query: STARTUPS_QUERY,
     params,
