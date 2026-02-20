@@ -10,9 +10,11 @@ export default function page({
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
-  <Suspense>
-    <HomeContent searchParams={searchParams} />
-  </Suspense>;
+  return (
+    <Suspense>
+      <HomeContent searchParams={searchParams} />
+    </Suspense>
+  );
 }
 
 async function HomeContent({
