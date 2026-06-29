@@ -5,8 +5,9 @@ import { parseServerActionResponse } from "./utils";
 import slugify from "slugify";
 import { writeClient } from "@/sanity/lib/write-client";
 import { PortableTextBlock } from "sanity";
+import { StartupFormValues } from "@/types/startupForm";
 export const createPitch = async (
-  state: any,
+  state: StartupFormValues,
   form: FormData,
   pitch: Array<PortableTextBlock>,
 ) => {

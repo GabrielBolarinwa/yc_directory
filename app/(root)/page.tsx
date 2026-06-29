@@ -5,11 +5,10 @@ import SearchForm from "../../components/SearchForm";
 import { ContentSourceMap } from "next-sanity";
 import { Suspense } from "react";
 
-export default function page({
-  searchParams,
-}: {
+type searchParams = {
   searchParams: Promise<{ query?: string }>;
-}) {
+};
+export default function page({ searchParams }: searchParams) {
   return (
     <Suspense>
       <HomeContent searchParams={searchParams} />
@@ -17,11 +16,7 @@ export default function page({
   );
 }
 
-async function HomeContent({
-  searchParams,
-}: {
-  searchParams: Promise<{ query?: string }>;
-}) {
+async function HomeContent({ searchParams }: searchParams) {
   const query = (await searchParams).query;
   const params = { search: query || null };
   const { data: posts } = (await sanityFetch({

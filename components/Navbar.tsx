@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { BadgePlus } from "lucide-react";
+import { BadgePlus, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "./LoginForm";
@@ -33,11 +33,15 @@ async function NavbarContent() {
               <LogoutForm />
               <Link href={`/user/${session?.user?.id}`}>
                 <Avatar className="size-10">
-                  <AvatarImage
-                    src={session.user.image}
-                    alt={session?.user?.name || ""}
-                  />
-                  <AvatarFallback>AV</AvatarFallback>
+                  {session.user.image && (
+                    <AvatarImage
+                      src={session.user.image}
+                      alt={session?.user?.name || ""}
+                    />
+                  )}
+                  <AvatarFallback>
+                    <User />
+                  </AvatarFallback>
                 </Avatar>
               </Link>
             </>

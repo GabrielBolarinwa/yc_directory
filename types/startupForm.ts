@@ -1,3 +1,10 @@
+export interface StartupFormValues {
+  title: string;
+  description: string;
+  category: string;
+  link: string;
+  pitch: string;
+}
 export interface errors {
   title?:
     | {

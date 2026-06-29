@@ -1,25 +1,27 @@
 "use client";
+import { createPitch } from "@/lib/actions";
 import { formSchema } from "@/lib/validation";
+import { errors, StartupFormValues } from "@/types/startupForm";
 import { markdownToPortableText } from "@portabletext/markdown";
 import MDEditor from "@uiw/react-md-editor";
 import { Send } from "lucide-react";
-import { Any, PortableTextBlock } from "next-sanity";
+import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
+import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { errors } from "@/types/startupForm";
-import { createPitch } from "@/lib/actions";
 
 function StartupForm() {
   const [errors, setErrors] = useState<errors | undefined>({});
   const [value, setValue] = useState<string>("**Hello World**");
   const [pitch, setPitch] = useState(markdownToPortableText(value));
   const router = useRouter();
-  const handleFormSubmit = async (prevState: Any, formData: FormData) => {
+  const handleFormSubmit = async (
+    prevState: StartupFormValues,
+    formData: FormData,
+  ) => {
     try {
       const formValues = {
         title: formData.get("title") as string,
@@ -37,7 +39,8 @@ function StartupForm() {
 
         if (fieldErrors) {
           toast.error("Error", {
-            description: "Validation failed, please check your inputs",
+            description:
+              "Invalid data, please enter valid data in the inputs provided",
 
             style: {
               background: "red",
@@ -78,6 +81,8 @@ function StartupForm() {
       };
     }
   };
+  // oxlint-disable-next-line no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [state, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
@@ -159,8 +164,7 @@ function StartupForm() {
           height={300}
           style={{ borderRadius: 20, overflow: "hidden" }}
           textareaProps={{
-            placeholder:
-              "Briefly describe your pitch and what problem it solves",
+            placeholder: "Enter your startup details and info",
           }}
           previewOptions={{
             disallowedElements: ["style"],

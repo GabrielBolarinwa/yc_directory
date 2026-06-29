@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { cn, formatDate } from "@/lib/utils";
 import { Author, Startup } from "@/sanity/types";
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -37,13 +37,17 @@ function StartupCard({ post }: { post: StartupCardType }) {
           </Link>
         </div>
         <Link href={`/user/${author?._id}`}>
-          <Image
-            src={author?.image}
-            alt={author?.name}
-            width={48}
-            height={48}
-            className="rounded-full"
-          />
+          {author?.image ? (
+            <Image
+              src={author?.image}
+              alt={author?.name || ""}
+              width={48}
+              height={48}
+              className="rounded-full"
+            />
+          ) : (
+            <User size={48} className="rounded-full" />
+          )}
         </Link>
       </div>
       <Link href={`/startup/${_id}`}>
