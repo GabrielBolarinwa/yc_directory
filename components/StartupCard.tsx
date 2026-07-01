@@ -23,7 +23,7 @@ function StartupCard({ post }: { post: StartupCardType }) {
       <div className="flex-between">
         <p className="startup_card_date">{formatDate(_createdAt)}</p>
         <div className="flex gap-1.5 align-baseline">
-          <EyeIcon size={24} className="text-primary" />
+          <EyeIcon size={24} className="text-primary" aria-hidden />
           <span className="text-16-medium">{views}</span>
         </div>
       </div>
@@ -46,7 +46,11 @@ function StartupCard({ post }: { post: StartupCardType }) {
               className="rounded-full"
             />
           ) : (
-            <User size={48} className="rounded-full" />
+            <User
+              size={48}
+              className="rounded-full"
+              aria-label={`${author?.name} icon`}
+            />
           )}
         </Link>
       </div>
@@ -54,7 +58,7 @@ function StartupCard({ post }: { post: StartupCardType }) {
         <p className="startup-card_desc">{description}</p>
         <img
           src={image}
-          alt="placeholder"
+          alt=""
           className="startup-card_img"
           width={640}
           height={640}

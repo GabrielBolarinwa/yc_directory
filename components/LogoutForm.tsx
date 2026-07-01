@@ -13,7 +13,7 @@ export default function LogoutForm() {
   return (
     <form action={handleLogOut}>
       <button type="submit">
-        <span className="max-sm:hidden">Sign Out</span>
+        <span className="max-sm:sr-only">Sign Out</span>
         <LogOut size={24} className="sm:hidden text-red-500" />
       </button>
     </form>

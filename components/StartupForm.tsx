@@ -178,7 +178,7 @@ function StartupForm() {
       </div>
       <Button type="submit" className="startup-form_btn" disabled={isPending}>
         {isPending ? "Submitting..." : "Submit your Pitch"}
-        <Send size={96} className="mt-2" />
+        <Send size={96} className="mt-2" aria-hidden />
       </Button>
     </form>
   );

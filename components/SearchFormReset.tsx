@@ -12,7 +12,7 @@ function SearchFormReset() {
   };
   return (
     <button type="reset" onClick={reset}>
-      <Link href={"/"} className="search-btn">
+      <Link href={"/"} className="search-btn" aria-label="Clear Search">
         <X size={20} />
       </Link>
     </button>
