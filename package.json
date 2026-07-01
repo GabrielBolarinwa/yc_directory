@@ -13,7 +13,6 @@
   },
   "packageManager": "npm@10.5.2",
   "dependencies": {
-    "@esbuild/win32-x64": "^0.27.0",
     "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/core": "^2.5.1",
     "@portabletext/markdown": "^1.1.2",
@@ -54,6 +53,8 @@
     "typescript": "^5"
   },
   "optionalDependencies": {
+    "@esbuild/win32-x64": "^0.27.0",
+    "@esbuild/linux-x64": "^0.27.0",
     "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0",
     "lightningcss-linux-x64-gnu": "^1.31.1"
   }
