@@ -24,7 +24,6 @@
     "@uiw/react-md-editor": "^4.0.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lightningcss": "1.31.1",
     "lucide-react": "^0.564.0",
     "next": "16.1.6",
     "next-auth": "^5.0.0-beta.30",
@@ -55,6 +54,7 @@
   "optionalDependencies": {
     "@esbuild/win32-x64": "^0.27.0",
     "@esbuild/linux-x64": "^0.27.0",
+    "lightningcss": "1.31.1",
     "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0",
     "lightningcss-linux-x64-gnu": "^1.31.1"
   }
